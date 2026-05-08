@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kashmir Wear</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>Kashmir Wear</h1>
+
+<p>
+Luxury Handmade Pashmina, Pherans & Traditional Kashmiri Fashion
+</p>
+
+<a href="#products" class="hero-btn">
+  Shop Collection
+</a>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#products">Products</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+  <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  <a href="#login">Login</a>
+</nav>
+<section id="cart">
+  <h2>Shopping Cart</h2>
+
+  <ul id="cart-items"></ul>
+  <input 
+  type="text"
+  id="coupon"
+  placeholder="Enter Coupon Code">
+
+<button onclick="applyDiscount()" class="discount-btn">
+  Apply Coupon
+</button>
+
+  <h3>Total: ₹<span id="total">0</span></h3>
+
+  <button onclick="clearCart()">Clear Cart</button>
+  <button onclick="makePayment()" class="pay-btn">
+  Proceed to Payment
+</button>
+</section>
+
+<!-- HOME -->
+<section id="home">
+
+  <h2>Welcome to Kashmir Wear</h2>
+
+  <p class="welcome-text">
+    Discover the timeless beauty of authentic Kashmiri fashion.
+    From handcrafted Pashmina shawls to elegant embroidered
+    Pherans, every piece reflects the culture, warmth,
+    and artistry of Kashmir.
+  </p>
+
+  <div class="features">
+
+    <div class="feature-box">
+      <h3>✨ Handmade</h3>
+      <p>Crafted by skilled Kashmiri artisans.</p>
+    </div>
+
+    <div class="feature-box">
+      <h3>🧵 Premium Fabric</h3>
+      <p>Soft, warm and luxurious materials.</p>
+    </div>
+
+    <div class="feature-box">
+      <h3>🚚 Fast Delivery</h3>
+      <p>Safe delivery across India.</p>
+    </div>
+
+  </div>
+
+  <a href="#products" class="hero-btn">
+    Explore Collection
+  </a>
+
+</section>
+<!-- SEARCH -->
+<input 
+  type="text" 
+  id="search" 
+  placeholder="Search products..."
+  onkeyup="searchProducts()">
+<!-- PRODUCTS -->
+<section id="products">
+
+  <h2>Our Products</h2>
+
+  <!-- PRODUCT 1 -->
+  <div class="product product-item">
+
+    <img src="pheran.jpg.jpg" alt="Pheran">
+
+    <div class="product-content">
+
+      <h3>Pheran</h3>
+
+      <p>Warm traditional winter wear.</p>
+
+      <h4>₹3,299 <span>₹4,999</span></h4>
+
+      <button onclick="addToCart('Pheran', 3299)">
+        Buy Now
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product product-item">
+
+    <img src="pashmina.jpg.jpg" alt="Pashmina">
+
+    <div class="product-content">
+
+      <h3>Pashmina Shawl</h3>
+
+      <p>Soft and luxurious shawls.</p>
+
+      <h4>₹2,499 <span>₹3,999</span></h4>
+
+      <button onclick="addToCart('Pashmina Shawl', 2499)">
+        Buy Now
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="product product-item">
+
+    <img src="suit.jpg.jpg" alt="Suit">
+
+    <div class="product-content">
+
+      <h3>Embroidered Suit</h3>
+
+      <p>Beautiful Aari work designs.</p>
+
+      <h4>₹4,999 <span>₹5,999</span></h4>
+
+      <button onclick="addToCart('Embroidered Suit', 4999)">
+        Buy Now
+      </button>
+
+    </div>
+
+  </div>
+  <!-- PRODUCT 4 -->
+<div class="product product-item">
+
+ <img src="royal.jpg.jpg" alt="Shawl">
+
+  <div class="product-content">
+
+    <h3>Royal Kashmiri Shawl</h3>
+
+    <p>Elegant handcrafted winter shawl.</p>
+
+    <h4>₹3,799 <span>₹4,999</span></h4>
+
+    <button onclick="addToCart('Royal Kashmiri Shawl', 3799)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 5 -->
+<div class="product product-item">
+
+  <img src="Kashmiri.jpg.jpg" alt="Kurti">
+
+  <div class="product-content">
+
+    <h3>Kashmiri Earings</h3>
+
+    <p>Traditional design + anti tarnished.</p>
+
+    <h4>₹1,199 <span>₹2,299</span></h4>
+
+    <button onclick="addToCart('Kashmiri Kurti', 2199)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 6 -->
+<div class="product product-item">
+
+  <img src="cap.jpg.jpg" alt="Cap">
+
+  <div class="product-content">
+
+    <h3>Woolen Kashmiri Cap</h3>
+
+    <p>Soft handmade winter cap.</p>
+
+    <h4>₹999 <span>₹1,499</span></h4>
+
+    <button onclick="addToCart('Woolen Kashmiri Cap', 999)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+<!-- PRODUCT 7 -->
+<div class="product product-item">
+
+  <img src="saffron.jpg.jpg" alt="Saffron">
+
+  <div class="product-content">
+
+    <h3>Kashmiri Saffron Pack</h3>
+
+    <p>Premium pure saffron from Kashmir.</p>
+
+    <h4>₹899 <span>₹1,299</span></h4>
+
+    <button onclick="addToCart('Kashmiri Saffron Pack', 899)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 8 -->
+<div class="product product-item">
+
+  <img src="jacket.jpg.jpg" alt="Jacket">
+
+  <div class="product-content">
+
+    <h3>Woolen Kashmiri Jacket</h3>
+
+    <p>Warm and stylish winter jacket.</p>
+
+    <h4>₹3,999 <span>₹5,499</span></h4>
+
+    <button onclick="addToCart('Woolen Kashmiri Jacket', 3999)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 9 -->
+<div class="product product-item">
+
+  <img src="ring.jpg" alt="Ring">
+
+  <div class="product-content">
+
+    <h3>Traditional Kashmiri Ring</h3>
+
+    <p>Handcrafted ethnic jewelry piece.</p>
+
+    <h4>₹699 <span>₹999</span></h4>
+
+    <button onclick="addToCart('Kashmiri Ring', 699)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 10 -->
+<div class="product product-item">
+
+  <img src="bag.jpg.jpg" alt="Bag">
+
+  <div class="product-content">
+
+    <h3>Handmade Kashmiri Bag</h3>
+
+    <p>Eco-friendly traditional design.</p>
+
+    <h4>₹1,499 <span>₹2,199</span></h4>
+
+    <button onclick="addToCart('Kashmiri Bag', 1499)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 11 -->
+<div class="product product-item">
+
+  <img src="Bangles.jpg.jpg" alt="Stole">
+
+  <div class="product-content">
+
+    <h3>Trending Kashmiri Bangles</h3>
+
+    <p> luxury shine effect.</p>
+
+    <h4>₹2,799 <span>₹3,999</span></h4>
+
+    <button onclick="addToCart('Pashmina Stole', 2799)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 12 -->
+<div class="product product-item">
+
+  <img src="boot.jpg" alt="Boots">
+
+  <div class="product-content">
+
+    <h3> Kashmiri jutti</h3>
+
+    <p>Comfortable traditional  footwear.</p>
+
+    <h4>₹2,299 <span>₹3,199</span></h4>
+
+    <button onclick="addToCart('Kashmiri Boots', 2299)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 13 -->
+<div class="product product-item">
+
+  <img src="blanket.jpg.jpg" alt="Blanket">
+
+  <div class="product-content">
+
+    <h3>Handwoven Kashmiri Blanket</h3>
+
+    <p>Ultra warm handmade blanket.</p>
+
+    <h4>₹4,499 <span>₹6,000</span></h4>
+
+    <button onclick="addToCart('Kashmiri Blanket', 4499)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 14 -->
+<div class="product product-item">
+
+  <img src="woolen.jpg.jpg" alt="Scarf">
+
+  <div class="product-content">
+
+    <h3>Woolen Scarf</h3>
+
+    <p>Soft winter scarf with Kashmiri design.</p>
+
+    <h4>₹799 <span>₹1,199</span></h4>
+
+    <button onclick="addToCart('Woolen Scarf', 799)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 15 -->
+<div class="product product-item">
+
+  <img src="ethnic.jpg.jpg" alt="Dress">
+
+  <div class="product-content">
+
+    <h3>Kashmiri Ethnic Dress</h3>
+
+    <p>Elegant traditional outfit.</p>
+
+    <h4>₹3,599 <span>₹4,999</span></h4>
+
+    <button onclick="addToCart('Kashmiri Ethnic Dress', 3599)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+<!-- PRODUCT 16 -->
+<div class="product product-item">
+
+  <img src="wallet.jpg.jpg" alt="Wallet">
+
+  <div class="product-content">
+
+    <h3>Leather Kashmiri Wallet</h3>
+
+    <p>Handcrafted premium wallet.</p>
+
+    <h4>₹999 <span>₹1,499</span></h4>
+
+    <button onclick="addToCart('Kashmiri Wallet', 999)">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+  <h2>About Us</h2>
+
+  <p class="about-text">
+    Kashmir Wear is dedicated to preserving the beauty of
+    traditional Kashmiri fashion and craftsmanship.
+    We work closely with local artisans to bring you
+    authentic handmade Pashmina shawls, elegant Pherans,
+    embroidered suits, and timeless winter wear.
+  </p>
+
+  <p class="about-text">
+    Every product reflects the rich culture, warmth,
+    and heritage of Kashmir. Our mission is to deliver
+    premium quality fashion while supporting the talented
+    craftsmen of the valley.
+  </p>
+
+  <div class="about-stats">
+
+    <div class="stat-box">
+      <h3>500+</h3>
+      <p>Happy Customers</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>100%</h3>
+      <p>Handcrafted Products</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>20+</h3>
+      <p>Artisan Partners</p>
+    </div>
+
+  </div>
+
+</section>
+<!-- LOGIN -->
+<section id="login">
+
+  <h2>Login</h2>
+
+  <form onsubmit="loginUser(event)" class="login-form">
+
+    <input 
+      type="email" 
+      id="email" 
+      placeholder="Enter Email"
+      required>
+
+    <input 
+      type="password" 
+      id="password" 
+      placeholder="Enter Password"
+      required>
+
+    <button type="submit">
+      Login
+    </button>
+
+  </form>
+
+  <p id="login-message"></p>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+  <h2>Contact Us</h2>
+
+  <form action="https://formspree.io/f/xykoprgj" method="POST">
+
+    <input 
+      type="text" 
+      name="name" 
+      placeholder="Your Name" 
+      required>
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your Email" 
+      required>
+
+    <textarea 
+      name="message" 
+      placeholder="Your Message"
+      rows="6">
+    </textarea>
+
+    <button type="submit">
+      Send Message
+    </button>
+
+  </form>
+
+</section>
+<footer>
+  <p>© 2026 Kashmir Wear</p>
+</footer>
+
+<!-- SCRIPT (moved to bottom) -->
+<script>
+
+
+let cart = [];
+let total = 0;
+
+function addToCart(product, price) {
+
+  cart.push({ product, price });
+
+  total += price;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  document.getElementById("cart-count").innerText = cart.length;
+
+  let li = document.createElement("li");
+
+  li.innerHTML = `
+    ${product} - ₹${price}
+    <button onclick="removeItem(this, ${price})">
+      Remove
+    </button>
+  `;
+
+  document.getElementById("cart-items").appendChild(li);
+
+  document.getElementById("total").innerText = total;
+}
+
+function removeItem(button, price) {
+
+  button.parentElement.remove();
+
+  total -= price;
+
+  document.getElementById("total").innerText = total;
+
+  cart.length--;
+
+  document.getElementById("cart-count").innerText = cart.length;
+}
+
+function clearCart() {
+
+  cart = [];
+
+  total = 0;
+
+  document.getElementById("cart-items").innerHTML = "";
+
+  document.getElementById("cart-count").innerText = 0;
+
+  document.getElementById("total").innerText = 0;
+
+  localStorage.removeItem("cart");
+}
+
+function searchProducts() {
+
+  let input =
+    document.getElementById("search")
+    .value
+    .toLowerCase();
+
+  let products =
+    document.getElementsByClassName("product-item");
+
+  for (let i = 0; i < products.length; i++) {
+
+    let productName =
+      products[i]
+      .getElementsByTagName("h3")[0]
+      .innerText
+      .toLowerCase();
+
+    if (productName.includes(input)) {
+
+      products[i].style.display = "block";
+
+    } else {
+
+      products[i].style.display = "none";
+    }
+  }
+}
+
+function loadCart() {
+
+  let savedCart = localStorage.getItem("cart");
+
+  if (savedCart) {
+
+    cart = JSON.parse(savedCart);
+
+    total = 0;
+
+    document.getElementById("cart-items").innerHTML = "";
+
+    for (let i = 0; i < cart.length; i++) {
+
+      let item = cart[i];
+
+      total += item.price;
+
+      let li = document.createElement("li");
+
+      li.innerHTML = `
+        ${item.product} - ₹${item.price}
+        <button onclick="removeItem(this, ${item.price})">
+          Remove
+        </button>
+      `;
+
+      document.getElementById("cart-items")
+        .appendChild(li);
+    }
+
+    document.getElementById("cart-count")
+      .innerText = cart.length;
+
+    document.getElementById("total")
+      .innerText = total;
+  }
+}
+
+function toggleDarkMode() {
+
+  document.body.classList.toggle("dark");
+}
+
+function loginUser(event) {
+
+  event.preventDefault();
+
+  let email =
+    document.getElementById("email").value;
+
+  let password =
+    document.getElementById("password").value;
+
+  if (
+    email === "admin@gmail.com" &&
+    password === "12345"
+  ) {
+
+    document.getElementById("login-message")
+      .innerText = "✅ Login Successful";
+
+  } else {
+
+    document.getElementById("login-message")
+      .innerText = "❌ Invalid Email or Password";
+  }
+}
+
+function makePayment() {
+
+  if (cart.length === 0) {
+
+    alert("Your cart is empty!");
+
+  } else {
+
+    alert("✅ Payment Successful!");
+
+    clearCart();
+  }
+}
+function applyDiscount() {
+
+  let coupon =
+    document.getElementById("coupon")
+    .value;
+
+  if (coupon === "KASHMIR20") {
+
+    let discount =
+      total * 0.20;
+
+    total =
+      total - discount;
+
+    document.getElementById("total")
+      .innerText = total;
+
+    alert("✅ 20% Discount Applied!");
+
+  } else {
+
+    alert("❌ Invalid Coupon Code");
+  }
+}
+
+loadCart();
+
+</script>
